@@ -1,4 +1,4 @@
-const todoService = require('../service/todoService')
+const todoService = require('../services/todoService')
 
 class TodoController {
   

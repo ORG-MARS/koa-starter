@@ -1,7 +1,7 @@
 const path = require('path')
 const koaBody = require('koa-body')
 const koaStatic = require('koa-static')
-const todoRouter = require('./router/todo')
+const todoRouter = require('./routers/todo')
 const Koa = require('koa')
 const app = new Koa()
 

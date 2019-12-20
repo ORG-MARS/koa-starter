@@ -1,4 +1,4 @@
-const todoTable = require('../model/todoTable')
+const todoTable = require('../models/todoTable')
 const larkcloud = require('@byted/larkcloud-api')
 const ObjectId = larkcloud.db.ObjectId
 
