@@ -1,5 +1,9 @@
-const larkcloud = require('@byted/larkcloud-api')
+// 使用 larkcloud 调用轻服务功能
+const larkcloud = require('@byted/larkcloud-api');
 
-const todoTable = larkcloud.db.table('todo')
+// 使用轻服务 todo 表
+// 若用户未创建，在发送第一条调用时会自动创建该表
+const todoTable = larkcloud.db.table('todo');
 
-module.exports = todoTable
+// 导出 table 实例
+module.exports = todoTable;
