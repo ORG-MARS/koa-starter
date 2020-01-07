@@ -108,7 +108,7 @@
   Vue.use(JsonView.default);
   new Vue({
     el: '#app',
-    data () {
+    data() {
       return {
         todoList: [],
         newTodo: '',
@@ -124,7 +124,7 @@
      * 1. 切入 axios，使得每个请求会显示到界面上
      * 2. 向后端拉取待办事项数据
      */
-    async created () {
+    async created() {
       this.interceptAxios();
       await this.getTodos();
       this.loading = false;
@@ -133,23 +133,23 @@
       /**
        * 筛选所有未完成的待办事项
        */
-      pending: function () {
-        return this.todoList.filter(function (item) {
+      pending: function() {
+        return this.todoList.filter(function(item) {
           return !item.done;
         });
       },
       /**
        * 筛选所有完成的待办事项
        */
-      completed: function () {
-        return this.todoList.filter(function (item) {
+      completed: function() {
+        return this.todoList.filter(function(item) {
           return item.done;
         });
       },
       /**
        * 计算完成的百分比
        */
-      completedPercentage: function () {
+      completedPercentage: function() {
         return (Math.floor((this.completed.length / this.todoList.length) * 100)) + '%';
       }
     },
@@ -157,9 +157,9 @@
       /**
        * 切入 axios，记录请求和响应
        */
-      interceptAxios () {
+      interceptAxios() {
         window.axios.interceptors.request.use((config) => {
-          const { method, url, data } = config;
+          const {method, url, data} = config;
           this.request.push(`→ ${method.toUpperCase()} ${url}`);
           if (data) {
             this.request.push(data);
@@ -167,7 +167,7 @@
           return config;
         });
         window.axios.interceptors.response.use((resp) => {
-          const { status, data } = resp;
+          const {status, data} = resp;
           this.request.push(`← ${status}`);
           if (data) {
             this.request.push(data);
@@ -180,7 +180,7 @@
           if (!err.response) {
             throw err;
           }
-          const { status, data } = err.response;
+          const {status, data} = err.response;
           this.request.push(`← ${status}`);
           if (data) {
             this.request.push(data);
@@ -196,7 +196,7 @@
       /**
        * 当请求记录发生变化时，自动滚动内容
        */
-      setScroll () {
+      setScroll() {
         if (this.scrollTimer) clearTimeout(this.scrollTimer);
         this.scrollTimer = setTimeout(() => {
           this.$refs.logger.scrollTo({
@@ -208,34 +208,34 @@
       /**
        * 界面是否显示已完成的待办事项
        */
-      toggleShowComplete () {
+      toggleShowComplete() {
         this.showComplete = !this.showComplete;
       },
       /**
        * 拉取所有待办事项
        */
-      async getTodos () {
+      async getTodos() {
         this.todoList = await this.fetchListAction();
       },
 
       /**
        * 将一条待办事项设为完成
        */
-      async updateToDone (item) {
+      async updateToDone(item) {
         item.done = true;
         await this.updateToDoneAction(item._id);
       },
       /**
        * 将一条待办事项设为未完成
        */
-      async updateToUnDone (item) {
+      async updateToUnDone(item) {
         item.done = false;
         await this.updateToUnDoneAction(item._id);
       },
       /**
        * 增加一条待办事项
        */
-      async addItem () {
+      async addItem() {
         // validation check
         if (this.newTodo) {
           const result = await this.addAction(this.newTodo);
@@ -246,7 +246,7 @@
       /**
        * 删除一条待办事项
        */
-      async deleteItem (item) {
+      async deleteItem(item) {
         const index = this.todoList.indexOf(item);
         this.todoList.splice(index, 1);
         await this.deleteAction(item._id);
@@ -254,30 +254,30 @@
       /**
        * 删除所有待办事项
        */
-      async clearAll () {
+      async clearAll() {
         await this.deleteAllAction();
         this.todoList = [];
       },
 
       // 以下为 actions 的定义，完成实际的后端请求
-      async addAction (title) {
-        const { data: { result } } = await window.axios.post('/api/todo', { title });
+      async addAction(title) {
+        const {data: {result}} = await window.axios.post('/api/todo', {title});
         return result;
       },
-      async fetchListAction () {
-        const { data: { list } } = await window.axios.get('/api/todo');
+      async fetchListAction() {
+        const {data: {list}} = await window.axios.get('/api/todo');
         return list;
       },
-      async deleteAction (id) {
+      async deleteAction(id) {
         await window.axios.delete(`/api/todo/${id}`);
       },
-      async deleteAllAction () {
+      async deleteAllAction() {
         await window.axios.delete(`/api/todo`);
       },
-      async updateToDoneAction (_id) {
+      async updateToDoneAction(_id) {
         await window.axios.put(`/api/todo/${_id}/done`);
       },
-      async updateToUnDoneAction (_id) {
+      async updateToUnDoneAction(_id) {
         await window.axios.put(`/api/todo/${_id}/undone`);
       }
     }

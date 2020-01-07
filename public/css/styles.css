@@ -16,8 +16,6 @@ body{
   position: relative;
 }
 
-
-
 @media screen and (max-width: 600px) {
   /*当屏幕尺寸小于600px时，应用下面的CSS样式*/
   .request-logger {
@@ -30,8 +28,9 @@ body{
 }
 
 .readme {
-  position: absolute;
   right: 0;
+  margin: 20px;
+
   width: 480px;
   max-height: 600px;
   border: 1px solid #eee;
@@ -43,8 +42,8 @@ body{
   overflow-y: auto;
 }
 .request-logger {
-  position: absolute;
   width: 480px;
+  margin: 20px;
   max-height: 600px;
   border: 1px solid #eee;
   border-radius: 4px;
@@ -83,12 +82,13 @@ body{
 }
 
 .request-line{
+  word-break: break-all;
   margin: 3px;
 }
 
 .json-theme {
   background: #ccbae3;
-  white-space: nowrap;
+  word-break: break-all;
   color: #525252;
   padding: 0;
   font-size: 14px;
@@ -124,9 +124,9 @@ h1{
 }
 .todo-wrapper{
   width: 400px;
+  margin: auto;
+  min-height: 100%;
   max-width: 100%;
-  min-height: 600px;
-  margin:  auto  ;
   border: 1px solid #eee;
   border-radius: 4px;
   padding: 40px 20px;
