@@ -52,9 +52,11 @@ project
   |- .gitignore      # Git 管理时标识忽略内容的文件
 ```
 ## 如何发布类似的模板
-想要发布自定义的云工程模板，修改根目录下 `package.json` 的 `name` 字段，发布新的 bnpm 包即可。
+想要发布自定义的云工程模板，通过发布一个 `@byted-larkcloud-template/my-template` 的包，即可为轻服务 CLI 创建名为 `my-template` 的模板。
 
-详见[如何创建云工程模板](https://larkcloud.bytedance.net/docs/cloud-project/custom-template.html)。
+模板机制很简单：如果用户选择使用 `my-template` 模板，则会将 bnpm 包 `@byted-larkcloud-template/my-template` 的内容复制到项目目录。
+
+详见[轻服务 CLI 项目模板](https://larkcloud.bytedance.net/docs/cloud-project/cli-template.html)。
 
 ## 反馈
 
