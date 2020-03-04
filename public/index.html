@@ -17,7 +17,7 @@
 <body>
 <div id="app" style="display: flex;flex-direction: column">
     <h1>待办事项 App</h1>
-    <div style="flex: 1;display: flex;height: 100%">
+    <div style="flex: 1 ;display: flex;height: 100%;overflow: hidden">
         <div class="request-logger" style="flex: 1" ref="logger">
             <h2 class="title">请求列表
             </h2>
@@ -37,11 +37,13 @@
 
 
         <div class="todo-wrapper" style="flex: 1">
-            <form @keydown.enter.prevent="">
+            <form @keydown.enter.prevent="" style="display: flex">
+
                 <input type="text" class="input-todo" :class="{ active: newTodo }" placeholder="输入待办事项"
                        v-model="newTodo"
-                       @keyup.enter="addItem">
-                <div class="btn btn-add" :class="{ active: newTodo }" @click="addItem">+</div>
+                       @keyup.enter="addItem" style="flex:1 ;margin-right:10px;">
+                <div class="btn btn-add" :class="{ active: newTodo }" @click="addItem" style="flex:0">+</div>
+
             </form>
 
 
@@ -77,12 +79,13 @@
                         </li>
                     </transition-group>
                 </div>
-                <div class="control-buttons">
-                    <div class="btn btn-secondary" v-if="completed.length > 0" @click="toggleShowComplete"><span
-                            v-if="!showComplete">显示</span><span v-else>隐藏</span>已完成
-                    </div>
-                    <div class="btn btn-secondary" v-if="todoList.length > 0" @click="clearAll">清除所有</div>
+
+            </div>
+            <div class="control-buttons">
+                <div class="btn btn-secondary" v-if="completed.length > 0" @click="toggleShowComplete"><span
+                        v-if="!showComplete">显示</span><span v-else>隐藏</span>已完成
                 </div>
+                <div class="btn btn-secondary" v-if="todoList.length > 0" @click="clearAll">清除所有</div>
             </div>
         </div>
 

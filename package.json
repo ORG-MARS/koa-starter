@@ -1,6 +1,6 @@
 {
-  "name": "koa-starter",
-  "version": "1.0.0",
+  "name": "@byted-larkcloud-template/koa",
+  "version": "0.0.4",
   "dependencies": {
     "@byted/larkcloud-api": "^1.1.5",
     "@koa/router": "^8.0.2",

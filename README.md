@@ -51,6 +51,10 @@ project
   |- package.json    # npm 的通用配置文件
   |- .gitignore      # Git 管理时标识忽略内容的文件
 ```
+## 如何发布类似的模板
+想要发布自定义的云工程模板，修改根目录下 `package.json` 的 `name` 字段，发布新的 bnpm 包即可。
+
+详见[如何创建云工程模板](https://larkcloud.bytedance.net/docs/cloud-project/custom-template.html)。
 
 ## 反馈
 
