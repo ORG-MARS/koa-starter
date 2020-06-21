@@ -1,6 +1,7 @@
 {
   "name": "@byted-larkcloud-template/koa",
-  "version": "0.0.4",
+  "version": "0.0.5",
+  "files": ["*","!.*",".gitignore"],
   "dependencies": {
     "@byted/larkcloud-api": "^1.1.5",
     "@koa/router": "^8.0.2",
