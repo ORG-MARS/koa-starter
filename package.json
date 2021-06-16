@@ -7,7 +7,7 @@
     ".gitignore"
   ],
   "dependencies": {
-    "@byted/inspirecloud-api": "^1.2.12",
+    "@byted/inspirecloud-api": "^1.5.2",
     "@koa/router": "^8.0.2",
     "koa": "^2.11.0",
     "koa-body": "^4.1.1",
