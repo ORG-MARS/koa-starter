@@ -56,7 +56,7 @@ project
 
 有任何问题和建议，欢迎使用飞书扫描下方二维码，加入官方支持群反馈。
 
-![lark-group](https://tosv.byted.org/obj/eden-internal/fuvazli/inspirecloud-external-qrcode-lark.png)
+![lark-group](https://lf3-static.bytednsdoc.com/obj/eden-cn/fuvazli/lark-group-blank.jpeg)
 
 ---
 Powered By [轻服务 - 面向未来的云服务](https://qingfuwu.cn)
